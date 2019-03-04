@@ -11,4 +11,4 @@ class Weather(db.Model):
     day_min_temp = db.Column(db.DateTime, nullable=False)
     min_temp = db.Column(db.Integer, nullable=False)
     day_rain_forecast = db.Column(db.DateTime, nullable=False)
-    rain_forecast = db.Column(db.String(4), nullable=False)
+    rain_forecast = db.Column(db.Integer, nullable=False)
