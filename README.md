@@ -82,3 +82,9 @@ a resposta vem da seguinte maneira:
 aonde max_rain é sobre a previsão de chuva mostrando o dia com maior previsão e o valor esperado de chuva em mm,
 min_temp é sobre a previsão de temperatura máxima mostrando o dia com previsão de maior temperatura e o valor da temperatura em graus celsius e min_temp é sobre a previsão de temperatura mínima mostrando o dia com previsão de menor temperatura e o valor da temperatura em graus celsius.
 
+# testes
+apenas execute pelo terminal dentro do projeto o seguinte:
+
+`pytest`
+
+
