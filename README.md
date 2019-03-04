@@ -41,6 +41,10 @@ exporte o token no seu ambiente da seguinte maneira:
 ```
 export CLIMATEMPO_TOKEN="your_token"
 ```
+6 - Agora é só rodar o projeto:
+```
+python manage.py runserver
+```
 
 # exemplo de requisição
 a requisição devera ser passada da seguinte maneira:
