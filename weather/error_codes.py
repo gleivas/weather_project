@@ -22,20 +22,12 @@ class InvalidRequest(Exception):
 
 class ErrorCodes:
 
-    DATE_FORMAT_INVALID = {
-        'detail': 'The date format is invalid, it should be YYYY-MM-DD'
-    },
+    DATE_FORMAT_INVALID = 'The date format is invalid, it should be YYYY-MM-DD'
 
-    DATE_LIMIT_INVALID = {
-        'detail': 'The date can not be more than {}'.format(
-            (date.today() + timedelta(max_date_from_today)).strftime('%Y-%m-%d')
-        )
-    },
+    DATE_LIMIT_INVALID = 'The date can not be more than {}'.format(
+        (date.today() + timedelta(max_date_from_today)).strftime('%Y-%m-%d')
+    )
 
-    WRONG_DATE_POSITION = {
-        'detail': 'The first date should be before the second date'
-    },
+    WRONG_DATE_POSITION = 'The first date should be before the second date'
 
-    WRONG_REQUEST_PARAMETERS = {
-        'detail': 'Wrong request parameters, it should contain city_code, from_date and to_date'
-    }
+    WRONG_REQUEST_PARAMETERS = 'Wrong request parameters, it should contain city_code, from_date and to_date'
