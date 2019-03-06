@@ -1,5 +1,5 @@
 # weather project
-Utilizando python com o microframework Flask esse projeto contém um único Endpoint que em um GET request passando como parâmetros uma data de ínicio, uma data final(as quais não podem serem maior que 7 dias do dia de hoje) e o código de uma cidade retorna em JSON contendo nesse intervalo de datas qual o dia com previsão de maior temperatura, menor temperatura e de mais chuva, consumindo da API do climatempo(https://advisor.climatempo.com.br/).
+Utilizando python com o microframework Flask esse projeto contém um único Endpoint que em um GET request passando como parâmetros uma data de ínicio, uma data final(as quais não podem serem maior que 7 dias do dia de hoje) e o código de uma cidade tem um retorno, em JSON, contendo nesse intervalo de datas qual o dia com previsão de maior temperatura, menor temperatura e de mais chuva, consumindo da API do climatempo(https://advisor.climatempo.com.br/).
 
 # setup
 1 - Criar uma Virtualenv
@@ -20,13 +20,13 @@ pip install -r requirements.txt
 
 dentro da pasta weather_project realizar os seguintes comandos:
 ```
-python manage.py db init
+python3 manage.py db init
 ```
 ```
-python manage.py db migrate
+python3 manage.py db migrate
 ```
 ```
-python manage.py db upgrade
+python3 manage.py db upgrade
 ```
 5 - Exportar o seu token do climatempo
 
@@ -56,25 +56,25 @@ lembrando que o city_code vc consegue através da api do climatempo(http://apiad
 
 a requisição montada ficara assim:
 ```
-curl -i "http://127.0.0.1:5000/api/v1/weather?city_code=3477&from_date=2019-03-04&to_date=2019-03-10"
+curl -i "http://127.0.0.1:5000/api/v1/weather?city_code=3477&from_date=2019-03-07&to_date=2019-03-12"
 ```
-aonde 3477 é o ID da cidade de São Paulo, 2019-03-04(Quatro de Março de 2019) a data de ínicio e 2019-03-10(Dez de Março de 2019) a data final. 
+aonde 3477 é o ID da cidade de São Paulo, 2019-03-07(Sete de Março de 2019) a data de ínicio e 2019-03-12(Doze de Março de 2019) a data final. 
 
 # exemplo de resposta
 a resposta vem da seguinte maneira:
 ```
 {  
    "max_rain":{  
-      "day":"2019-03-04",
-      "value":"13"
+      "day":"2019-03-11",
+      "value":"20"
    },
    "max_temp":{  
-      "day":"2019-03-05",
-      "value":31
+      "day":"2019-03-08",
+      "value":33
    },
    "min_temp":{  
-      "day":"2019-03-04",
-      "value":18
+      "day":"2019-03-07",
+      "value":19
    }
 }
 ```

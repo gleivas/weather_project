@@ -4,7 +4,7 @@ from datetime import date, timedelta, datetime
 import requests
 
 from db import db
-from weather.config import max_date_from_today, city_url, forecast_url
+from weather.config import max_date_from_today, climatempo_token, climatempo_api_url
 from weather.error_codes import ErrorCodes, InvalidRequest
 from weather.models import Weather
 
@@ -23,11 +23,27 @@ def validate_date(from_date, to_date):
 
     max_date = (date.today() + timedelta(max_date_from_today))
 
+    # Verificando se a data não é anterior a hoje
+    if from_date.date() < date.today():
+        raise InvalidRequest(ErrorCodes.DATE_BEFORE_TODAY)
+
     # Verificando se a data nao excede a data limite
     if to_date.date() > max_date:
         raise InvalidRequest(ErrorCodes.DATE_LIMIT_INVALID)
 
     return from_date, to_date
+
+
+def city_url(city_code):
+    return '{climatempo_url}locale/city/{city_code}?token={token}'.format(
+            city_code=city_code, token=climatempo_token, climatempo_url=climatempo_api_url
+        )
+
+
+def forecast_url(city_code):
+    return '{climatempo_url}forecast/locale/{city_code}/days/15?token={token}'.format(
+            city_code=city_code, token=climatempo_token, climatempo_url=climatempo_api_url
+        )
 
 
 def make_climatempo_request(url):

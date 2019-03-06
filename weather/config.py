@@ -1,16 +1,8 @@
 import os
 
+secret_key = os.getenv('SECRET_KEY', 'dev')
 climatempo_token = os.getenv('CLIMATEMPO_TOKEN')
+database_uri = 'sqlite:////tmp/weather.db'
+track_modifications = False
 max_date_from_today = 7
-
-
-def city_url(city_code):
-    return 'http://apiadvisor.climatempo.com.br/api/v1/locale/city/{city_code}?token={token}'.format(
-            city_code=city_code, token=climatempo_token
-        )
-
-
-def forecast_url(city_code):
-    return 'http://apiadvisor.climatempo.com.br/api/v1/forecast/locale/{city_code}/days/15?token={token}'.format(
-            city_code=city_code, token=climatempo_token
-        )
+climatempo_api_url = 'http://apiadvisor.climatempo.com.br/api/v1/'

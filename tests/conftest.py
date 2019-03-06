@@ -7,6 +7,15 @@ from weather.models import Weather
 from weather import db, create_weather_app
 
 
+def get_api_url(city_code, from_date, to_date):
+    url = '/api/v1/weather?city_code={city_code}&from_date={from_date}&to_date={to_date}'.format(
+        city_code=city_code,
+        from_date=from_date,
+        to_date=to_date
+    )
+    return url
+
+
 def weather_example():
     today = date.today()
     response = {

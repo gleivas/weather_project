@@ -24,10 +24,14 @@ class ErrorCodes:
 
     DATE_FORMAT_INVALID = 'The date format is invalid, it should be YYYY-MM-DD'
 
-    DATE_LIMIT_INVALID = 'The date can not be more than {}'.format(
+    DATE_LIMIT_INVALID = 'The date can\'t be more than {}'.format(
         (date.today() + timedelta(max_date_from_today)).strftime('%Y-%m-%d')
     )
 
     WRONG_DATE_POSITION = 'The first date should be before the second date'
 
     WRONG_REQUEST_PARAMETERS = 'Wrong request parameters, it should contain city_code, from_date and to_date'
+
+    DATE_BEFORE_TODAY = 'The date can\'t be less than {}'.format(
+        (date.today()).strftime('%Y-%m-%d')
+    )
